@@ -9,6 +9,13 @@ class StatusesController extends Controller
 {
     public function store()
     {
-        Status::create(['body' => request('body'), 'user_id' => auth()->id()]);
+        $status = Status::create([
+            'body' => request('body'),
+            'user_id' => auth()->id()
+        ]);
+
+        return response()->json(['body' => $status->body]);
+
+        // return redirect('/');
     }
 }
