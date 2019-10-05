@@ -17,3 +17,5 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.browserSync({
    proxy: 'http://social.test',
 })
+
+mix.disableNotifications()
