@@ -13,7 +13,6 @@
         <button class="btn btn-primary" id="create-status">Publicar</button>
       </div>
     </form>
-    <div v-for="status in statuses" :key="status.id" v-text="status.body"></div>
   </div>
 </template>
 
@@ -21,8 +20,7 @@
 export default {
   data() {
     return {
-      body: "",
-      statuses: []
+      body: ""
     };
   },
   methods: {
@@ -30,7 +28,7 @@ export default {
       axios
         .post("/statuses", { body: this.body })
         .then(res => {
-          this.statuses.push(res.data);
+          EventBus.$emit("status_created", res.data);
           this.body = "";
         })
         .catch(err => {
