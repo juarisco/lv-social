@@ -49485,7 +49485,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post("/statuses", { body: this.body }).then(function (res) {
-        EventBus.$emit("status_created", res.data);
+        EventBus.$emit("status_created", res.data.data);
         _this.body = "";
       }).catch(function (err) {
         console.log(err.response.data);
@@ -49724,7 +49724,28 @@ var render = function() {
         { key: status.id, staticClass: "card border-0 mb-3 shadow-sm" },
         [
           _c("div", { staticClass: "card-body d-flex flex-column" }, [
-            _vm._m(0, true),
+            _c("div", { staticClass: "d-flex align-items-center mb-3" }, [
+              _c("img", {
+                staticClass: "rounded mr-3 shadow-sm",
+                attrs: {
+                  width: "40px",
+                  src: "https://aprendible.com/images/default-avatar.jpg",
+                  alt: ""
+                }
+              }),
+              _vm._v(" "),
+              _c("div", {}, [
+                _c("h5", {
+                  staticClass: "mb-1",
+                  domProps: { textContent: _vm._s(status.user_name) }
+                }),
+                _vm._v(" "),
+                _c("div", {
+                  staticClass: "small text-muted",
+                  domProps: { textContent: _vm._s(status.ago) }
+                })
+              ])
+            ]),
             _vm._v(" "),
             _c("p", {
               staticClass: "card-text text-secondary",
@@ -49737,31 +49758,7 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "d-flex align-items-center mb-3" }, [
-      _c("img", {
-        staticClass: "rounded mr-3 shadow-sm",
-        attrs: {
-          width: "40px",
-          src: "https://aprendible.com/images/default-avatar.jpg",
-          alt: ""
-        }
-      }),
-      _vm._v(" "),
-      _c("div", {}, [
-        _c("h5", { staticClass: "mb-1" }, [_vm._v("Josef Waelchi")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "small text-muted" }, [
-          _vm._v("Hace una hora")
-        ])
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

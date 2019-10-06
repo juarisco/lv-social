@@ -10,8 +10,8 @@
             alt
           />
           <div class>
-            <h5 class="mb-1">Josef Waelchi</h5>
-            <div class="small text-muted">Hace una hora</div>
+            <h5 class="mb-1" v-text="status.user_name"></h5>
+            <div class="small text-muted" v-text="status.ago"></div>
           </div>
         </div>
         <p class="card-text text-secondary" v-text="status.body"></p>
