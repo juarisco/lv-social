@@ -49418,7 +49418,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49462,6 +49462,10 @@ module.exports = function listToStyles (parentId, list) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
 //
 //
 //
@@ -49572,7 +49576,11 @@ var staticRenderFns = [
       _c(
         "button",
         { staticClass: "btn btn-primary", attrs: { id: "create-status" } },
-        [_vm._v("Publicar")]
+        [
+          _c("i", { staticClass: "fa fa-paper-plane mr-1" }),
+          _vm._v(" "),
+          _vm._v("\n        Publicar\n      ")
+        ]
       )
     ])
   }
@@ -49672,7 +49680,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49683,6 +49691,21 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49784,12 +49807,15 @@ var render = function() {
             _c("p", {
               staticClass: "card-text text-secondary",
               domProps: { textContent: _vm._s(status.body) }
-            }),
-            _vm._v(" "),
+            })
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-footer p-2" }, [
             status.is_liked
               ? _c(
                   "button",
                   {
+                    staticClass: "btn btn-link btn-sm",
                     attrs: { dusk: "unlike-btn" },
                     on: {
                       click: function($event) {
@@ -49797,11 +49823,12 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("TE GUSTA")]
+                  [_vm._m(0, true)]
                 )
               : _c(
                   "button",
                   {
+                    staticClass: "btn btn-link btn-sm",
                     attrs: { dusk: "like-btn" },
                     on: {
                       click: function($event) {
@@ -49809,7 +49836,12 @@ var render = function() {
                       }
                     }
                   },
-                  [_vm._v("ME GUSTA")]
+                  [
+                    _c("i", {
+                      staticClass: "far fa-thumbs-up text-primary mr-1"
+                    }),
+                    _vm._v("\n        ME GUSTA\n      ")
+                  ]
                 )
           ])
         ]
@@ -49818,7 +49850,17 @@ var render = function() {
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("strong", [
+      _c("i", { staticClass: "fa fa-thumbs-up text-primary mr-1" }),
+      _vm._v("\n          TE GUSTA\n        ")
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
