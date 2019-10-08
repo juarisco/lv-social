@@ -29,7 +29,7 @@ class StatusTest extends TestCase
         $this->assertInstanceOf(Like::class, $status->likes->first());
     }
 
-    function test_a_status_can_be_liked()
+    function test_a_status_can_be_liked_and_unliked()
     {
         $status = factory(Status::class)->create();
 
@@ -37,7 +37,11 @@ class StatusTest extends TestCase
 
         $status->like();
 
-        $this->assertEquals(1, $status->likes->count());
+        $this->assertEquals(1, $status->fresh()->likes->count());
+
+        $status->unlike();
+
+        $this->assertEquals(0, $status->fresh()->likes->count());
     }
 
     function test_a_status_can_be_liked_once()
