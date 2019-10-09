@@ -18,9 +18,9 @@ class CanLikeStatusesTest extends TestCase
         // $this->withoutExceptionHandling();
         $status = factory(Status::class)->create();
 
-        $response = $this->post(route('statuses.likes.store', $status));
+        $response = $this->postJson(route('statuses.likes.store', $status));
 
-        $response->assertRedirect('login');
+        $response->assertStatus(401);
     }
 
     function test_an_authenticated_user_can_like_statuses()
