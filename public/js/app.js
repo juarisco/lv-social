@@ -49680,7 +49680,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49691,6 +49691,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -49755,11 +49756,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     like: function like(status) {
       axios.post("/statuses/" + status.id + "/likes").then(function (res) {
         status.is_liked = true;
+        status.likes_count++;
       });
     },
     unlike: function unlike(status) {
       axios.delete("/statuses/" + status.id + "/likes").then(function (res) {
         status.is_liked = false;
+        status.likes_count--;
       });
     }
   }
@@ -49843,7 +49846,11 @@ var render = function() {
                     }),
                     _vm._v("\n        ME GUSTA\n      ")
                   ]
-                )
+                ),
+            _vm._v(" "),
+            _c("span", { attrs: { dusk: "likes-count" } }, [
+              _vm._v(_vm._s(status.likes_count))
+            ])
           ])
         ]
       )

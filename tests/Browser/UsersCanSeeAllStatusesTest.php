@@ -22,7 +22,6 @@ class UsersCanSeeAllStatusesTest extends DuskTestCase
             foreach ($statuses as $status) {
                 $browser->assertSee($status->body)
                     ->assertSee($status->user->name)
-                    // ->waitForText($status->created_at->diffForHumans(), 2)
                     ->assertSee($status->created_at->diffForHumans());
             }
         });
