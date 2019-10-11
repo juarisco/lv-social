@@ -1,0 +1,203 @@
+[33mcommit 33e0ee84ff072d5318a70b821fe394811fbd1e04[m[33m ([m[1;36mHEAD -> [m[1;32m37.-Likes-polimorficos-Parte-2[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/37.-Likes-polimorficos-Parte-2[m[33m, [m[1;32mmaster[m[33m, [m[1;32m38.-Que-son-los-traits-y-como-utilizarlos[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 11 16:39:09 2019 -0500
+
+    37.-Likes-polimorficos-Parte-2
+
+[33mcommit e6cb8ba18e590b6eb6e83ff9e69502484aa99bc6[m[33m ([m[1;31morigin/36.-Likes-polimorficos-Parte-1[m[33m, [m[1;32m36.-Likes-polimorficos-Parte-1[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 11 15:57:28 2019 -0500
+
+    36.-Likes-polimorficos-Parte-1
+
+[33mcommit 4d533b98ae339ad91231a919a7f7c65bbd23c65f[m[33m ([m[1;31morigin/35.-Implementando-LIKES-a-los-comentarios[m[33m, [m[1;32m35.-Implementando-LIKES-a-los-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 11 11:48:13 2019 -0500
+
+    35.-Implementando-LIKES-a-los-comentarios
+
+[33mcommit 456b6a27b2706856500d2a098d75ebb73ed2d7c2[m[33m ([m[1;31morigin/34.-Validacion-de-comentarios[m[33m, [m[1;32m34.-Validacion-de-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 11 11:27:49 2019 -0500
+
+    34.-Validacion-de-comentarios
+
+[33mcommit 835e94a975082838ee67214e7a100ea1e4080518[m[33m ([m[1;31morigin/33.-Disenando-los-comentarios[m[33m, [m[1;32m33.-Disenando-los-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 11 11:12:04 2019 -0500
+
+    33.-Disenando-los-comentarios
+
+[33mcommit 68c478ab998ea09d7edd6e22f47b7be5f28c17b9[m[33m ([m[1;31morigin/32.-Campos-adicionales-de-los-comentarioss[m[33m, [m[1;32m32.-Campos-adicionales-de-los-comentarioss[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 10 17:19:45 2019 -0500
+
+    32.-Campos-adicionales-de-los-comentarioss
+
+[33mcommit f77578edd55c7c33e3e024fe2729db5731bbff01[m[33m ([m[1;31morigin/31.-Probando-el-listado-de-comentarios[m[33m, [m[1;32m31.-Probando-el-listado-de-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 10 16:36:28 2019 -0500
+
+    31.-Probando-el-listado-de-comentarios
+
+[33mcommit 91488b5feb321466b60c93a5f49f73fda9b10ede[m[33m ([m[1;31morigin/30.-Probando-la-caja-de-comentarios[m[33m, [m[1;32m30.-Probando-la-caja-de-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 10 15:26:39 2019 -0500
+
+    30.-Probando-la-caja-de-comentarios
+
+[33mcommit a40b263094e5e875d9d511beacf6d8eb61358dfd[m[33m ([m[1;31morigin/29.-Reestructuracion-de-componentes[m[33m, [m[1;32m29.-Reestructuracion-de-componentes[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 10 11:36:49 2019 -0500
+
+    29.-Reestructuracion-de-componentes
+
+[33mcommit 00fe7974079b6fab46e0a5e07787bc954f7ab230[m[33m ([m[1;31morigin/28.-Recurso-API-para-los-comentarios[m[33m, [m[1;32m28.-Recurso-API-para-los-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 9 16:52:09 2019 -0500
+
+    28.-Recurso-API-para-los-comentarios
+
+[33mcommit 9be0b89653ff35b6aa8c088f5d723b0a487501fd[m[33m ([m[1;31morigin/27.-Definiendo-la-URL-para-agregar-comentarios[m[33m, [m[1;32m27.-Definiendo-la-URL-para-agregar-comentarios[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 9 16:22:02 2019 -0500
+
+    27.-Definiendo-la-URL-para-agregar-comentarios
+
+[33mcommit 142aacc02fcec014df124b33727c584ebb5d447b[m[33m ([m[1;31morigin/26.-Flexbox-con-Bootstrap-4[m[33m, [m[1;32m26.-Flexbox-con-Bootstrap-4[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 9 15:35:37 2019 -0500
+
+    26.-Flexbox-con-Bootstrap-4
+
+[33mcommit 3d4a58edc3bd889355f1e30583ade23ff7512be1[m[33m ([m[1;31morigin/25.-Mostrando-el-conteo-de-likes[m[33m, [m[1;32m25.-Mostrando-el-conteo-de-likes[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 9 11:54:34 2019 -0500
+
+    25.-Mostrando-el-conteo-de-likes
+
+[33mcommit 46dac5fe40e8fee3166f55f5e134499af5377089[m[33m ([m[1;31morigin/24.-Redireccion-con-Javascript[m[33m, [m[1;32m24.-Redireccion-con-Javascript[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 9 11:17:28 2019 -0500
+
+    24.-Redireccion-con-Javascript
+
+[33mcommit 1208cdb5d13d12b3225dd7444c03c09a9cd08ed4[m[33m ([m[1;31morigin/23.-Utilizando-iconos-fuente[m[33m, [m[1;32m23.-Utilizando-iconos-fuente[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Tue Oct 8 17:32:41 2019 -0500
+
+    23.-Utilizando-iconos-fuente
+
+[33mcommit eae9f5e7b56d7226e3d21e2b8a690df4a28e2c65[m[33m ([m[1;31morigin/22.-Permitir-quitar-LIKES[m[33m, [m[1;32m22.-Permitir-quitar-LIKES[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Tue Oct 8 16:39:57 2019 -0500
+
+    22.-Permitir-quitar-LIKES
+
+[33mcommit 930690a2cee837d3d3bc821c22301bc3d7d67e16[m[33m ([m[1;31morigin/21.-Testeando-el-boton-ME-GUSTA[m[33m, [m[1;32m21.-Testeando-el-boton-ME-GUSTA[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Tue Oct 8 16:07:43 2019 -0500
+
+    21.-Testeando-el-boton-ME-GUSTA
+
+[33mcommit 2f190151d134a546332a45560765c285292abdf4[m[33m ([m[1;31morigin/20.-Implementando-LIKES[m[33m, [m[1;32m20.-Implementando-LIKES[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Mon Oct 7 17:06:27 2019 -0500
+
+    20.-Implementando-LIKES
+
+[33mcommit abf9567bb6f747ca1d0ea46c49415b102f13373c[m[33m ([m[1;31morigin/19.-Obteniendo-el-usuario-autenticado-con-Vue.js[m[33m, [m[1;32m19.-Obteniendo-el-usuario-autenticado-con-Vue.js[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Mon Oct 7 15:44:30 2019 -0500
+
+    19.-Obteniendo-el-usuario-autenticado-con-Vue.js
+
+[33mcommit a0f06b09c69e1cd2e126c03ddf8286849375edd8[m[33m ([m[1;31morigin/18.-Implementando-el-recurso-API[m[33m, [m[1;32m18.-Implementando-el-recurso-API[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sun Oct 6 11:08:42 2019 -0500
+
+    18.-Implementando-el-recurso-API
+
+[33mcommit 390bca2d4f0f8965a6497e7c2b1888a480ec457e[m[33m ([m[1;31morigin/17.-Testeando-Recursos-API[m[33m, [m[1;32m17.-Testeando-Recursos-API[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sat Oct 5 17:26:37 2019 -0500
+
+    17.-Testeando-Recursos-API
+
+[33mcommit 7f03c6fbfa05442ba91019e23b870c28735a02e6[m[33m ([m[1;31morigin/16.-Disenando-los-estados[m[33m, [m[1;32m16.-Disenando-los-estados[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sat Oct 5 16:42:02 2019 -0500
+
+    16.-Disenando-los-estados
+
+[33mcommit b102331f813869f13afb39d0f05a63c732afc916[m[33m ([m[1;31morigin/15.-Probando-el-listado-de-estados-con-Dusk[m[33m, [m[1;32m15.-Probando-el-listado-de-estados-con-Dusk[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sat Oct 5 16:10:41 2019 -0500
+
+    15.-Probando-el-listado-de-estados-con-Dusk
+
+[33mcommit 16ed9589e5f2317775b0ec932d65903917316133[m[33m ([m[1;31morigin/14.-Probando-listado-de-estados[m[33m, [m[1;32m14.-Probando-listado-de-estados[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sat Oct 5 11:52:59 2019 -0500
+
+    14.-Probando-listado-de-estados
+
+[33mcommit 6fcfd509e2f1701dd155fb82ebc5cdea350facc6[m[33m ([m[1;31morigin/13.-Componente-para-crear-estados[m[33m, [m[1;32m13.-Componente-para-crear-estados[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Sat Oct 5 10:57:12 2019 -0500
+
+    13.-Componente-para-crear-estados
+
+[33mcommit 78f9204585713e459688a7452e49c61e814febcc[m[33m ([m[1;31morigin/12.-Disenando-el-formulario-de-login[m[33m, [m[1;32m12.-Disenando-el-formulario-de-login[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Fri Oct 4 10:18:27 2019 -0500
+
+    12.-Disenando-el-formulario-de-login
+
+[33mcommit 6c0fe69aaf2762696b6c692a0666274e0928b9e5[m[33m ([m[1;31morigin/11.-Probando-el-login[m[33m, [m[1;32m11.-Probando-el-login[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 3 16:59:54 2019 -0500
+
+    11.-Probando-el-login
+
+[33mcommit 65dd53ab59e9ef4c35ceb4af1a50a2c348dad1ca[m[33m ([m[1;31morigin/10.-Disenando-la-plantilla-con-Bootstrap-4[m[33m, [m[1;32m10.-Disenando-la-plantilla-con-Bootstrap-4[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 3 15:43:10 2019 -0500
+
+    10.-Disenando-la-plantilla-con-Bootstrap-4
+
+[33mcommit a8f8f6442622315e6f6c1743b39d352155d84174[m[33m ([m[1;31morigin/9.-Pruebas-de-navegador-con-Laravel-Dusk[m[33m, [m[1;32m9.-Pruebas-de-navegador-con-Laravel-Dusk[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Thu Oct 3 11:40:57 2019 -0500
+
+    9.-Pruebas-de-navegador-con-Laravel-Dusk
+
+[33mcommit 81b2f98a4fc8ee838de40b298fa7ee5c9a89b57b[m[33m ([m[1;31morigin/8.-Probando-reglas-de-validacion[m[33m, [m[1;32m8.-Probando-reglas-de-validacion[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 2 17:01:50 2019 -0500
+
+    8.-Probando-reglas-de-validacion
+
+[33mcommit 6186976446ace3e033b60d5624093b5aa655b34d[m[33m ([m[1;31morigin/7.-URL-para-crear-estados-Parte-2[m[33m, [m[1;32m7.-URL-para-crear-estados-Parte-2[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 2 16:29:28 2019 -0500
+
+    7.-URL-para-crear-estados-Parte-2
+
+[33mcommit a7624b6df8170e97b0a89c2a963e48f71cc6ad13[m[33m ([m[1;31morigin/6.-URL-para-crear-estados[m[33m, [m[1;32m6.-URL-para-crear-estados[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 2 16:06:50 2019 -0500
+
+    6.-URL-para-crear-estados
+
+[33mcommit 160068b7c93055a0a462f9a13c3cb0699c7f362c[m[33m ([m[1;31morigin/5.-Nuestro-primer-test[m[33m, [m[1;32m5.-Nuestro-primer-test[m[33m)[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 2 15:31:14 2019 -0500
+
+    5.-Nuestro-primer-test
+
+[33mcommit ea8b8516e58da3070efc8fe4ba9213672894db71[m
+Author: Juarisco <juarisco@outlook.com>
+Date:   Wed Oct 2 12:00:33 2019 -0500
+
+    New fresh Install Laravel 5.6
