@@ -16,7 +16,8 @@
       <p class="card-text text-secondary" v-text="status.body"></p>
     </div>
     <div class="card-footer p-2 d-flex justify-content-between align-items-center">
-      <like-btn :status="status"></like-btn>
+      <like-btn dusk="like-btn" :url="`/statuses/${status.id}/likes`" :model="status"></like-btn>
+
       <div class="text-secondary mr-2">
         <i class="far fa-thumbs-up"></i>
         <span dusk="likes-count">{{ status.likes_count }}</span>
@@ -24,7 +25,7 @@
     </div>
 
     <div class="card-footer">
-      <div v-for="comment in comments" :key="comment.id" class="mb-2">
+      <div v-for="comment in comments" :key="comment.id" class="mb-3">
         <img
           class="rounded shadow-sm float-left mr-2"
           width="34px"
@@ -40,12 +41,8 @@
           </div>
         </div>
         <span dusk="comment-likes-count">{{ comment.likes_count }}</span>
-        <button
-          v-if="comment.is_liked"
-          dusk="comment-unlike-btn"
-          @click="unlikeComment(comment)"
-        >TE GUSTA</button>
-        <button v-else dusk="comment-like-btn" @click="likeComment(comment)">ME GUSTA</button>
+
+        <like-btn dusk="comment-like-btn" :url="`/comments/${comment.id}/likes`" :model="comment"></like-btn>
       </div>
       <form @submit.prevent="addComment" v-if="isAuthenticated">
         <div class="d-flex align-items-center">
@@ -97,28 +94,6 @@ export default {
         .then(res => {
           this.newComment = "";
           this.comments.push(res.data.data);
-        })
-        .catch(err => {
-          console.log(err.response.data);
-        });
-    },
-    likeComment(comment) {
-      axios
-        .post(`/comments/${comment.id}/likes`)
-        .then(res => {
-          comment.likes_count++;
-          comment.is_liked = true;
-        })
-        .catch(err => {
-          console.log(err.response.data);
-        });
-    },
-    unlikeComment(comment) {
-      axios
-        .delete(`/comments/${comment.id}/likes`)
-        .then(res => {
-          comment.likes_count--;
-          comment.is_liked = false;
         })
         .catch(err => {
           console.log(err.response.data);
