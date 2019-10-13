@@ -54,5 +54,12 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.comments-like-btn {
+  font-size: 0.7em;
+  padding-left: 0;
+  i {
+    display: none;
+  }
+}
 </style>
