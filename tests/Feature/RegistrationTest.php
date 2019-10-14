@@ -13,7 +13,7 @@ class RegistrationTest extends TestCase
 
     function test_users_can_register()
     {
-        // $this->withoutExceptionHandling();
+        $this->withoutExceptionHandling();
 
         $userData = [
             'name' => 'JosefWaelchi',
@@ -37,7 +37,7 @@ class RegistrationTest extends TestCase
 
         $this->assertTrue(
             Hash::check('secret', User::first()->password),
-            'The passwor needs to be hashed'
+            'The password needs to be hashed'
         );
     }
 }
