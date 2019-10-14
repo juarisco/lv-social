@@ -2,10 +2,15 @@
   <div class="card border-0 mb-3 shadow-sm">
     <div class="card-body d-flex flex-column">
       <div class="d-flex align-items-center mb-3">
-        <img class="rounded mr-3 shadow-sm" width="40px" :src="status.user_avatar" alt />
+        <img
+          class="rounded mr-3 shadow-sm"
+          width="40px"
+          :src="status.user.avatar"
+          :alt="status.user.name"
+        />
         <div class>
           <h5 class="mb-1">
-            <a :href="status.user_link" v-text="status.user_name"></a>
+            <a :href="status.user.link" v-text="status.user.name"></a>
           </h5>
           <div class="small text-muted" v-text="status.ago"></div>
         </div>
@@ -28,14 +33,14 @@
             class="rounded shadow-sm mr-2"
             height="34px"
             width="34px"
-            :src="comment.user_avatar"
-            :alt="comment.user_name"
+            :src="comment.user.avatar"
+            :alt="comment.user.name"
           />
           <div class="flex-grow-1">
             <div class="card border-0 shadow-sm">
               <div class="card-body p-2 text-secondary">
-                <a :href="comment.user_link">
-                  <strong>{{ comment.user_name }}</strong>
+                <a :href="comment.user.link">
+                  <strong>{{ comment.user.name }}</strong>
                 </a>
                 {{ comment.body }}
               </div>
