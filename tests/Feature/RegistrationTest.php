@@ -13,6 +13,10 @@ class RegistrationTest extends TestCase
 
     function test_users_can_register()
     {
+        // $this->withoutExceptionHandling();
+
+        $this->get(route('register'))->assertSuccessful();
+
         $response = $this->post(route('register'), $this->userValidData());
 
         $response->assertRedirect('/');
@@ -81,7 +85,7 @@ class RegistrationTest extends TestCase
 
         $this->post(
             route('register'),
-            $this->userValidData(['name' => 'JosefWaelchi*'])
+            $this->userValidData(['name' => 'JosefWaelchi<>'])
         )->assertSessionHasErrors('name');
     }
 

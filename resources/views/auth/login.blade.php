@@ -5,6 +5,7 @@
     <div class="row">
         <div class="col-md-6 mx-auto">
             <div class="card border-0 bg-light px-4 py-2">
+                @include('partials.validation-errors')
                 <div class="card-body">
                     <form action="{{ route('login') }}" method="post">
                         @csrf
@@ -16,7 +17,7 @@
                             <label for="password">Contraseña</label>
                             <input class="form-control border-0" type="password" name="password" id="password" autocomplete="new-password" placeholder="Tu contraseña">
                         </div>
-                        <button class="btn btn-primary btn-block" id="login-btn">Login</button>
+                        <button class="btn btn-primary btn-block" dusk="login-btn">Login</button>
     
                     </form>
                 </div>
