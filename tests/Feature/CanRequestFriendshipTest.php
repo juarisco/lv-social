@@ -12,7 +12,7 @@ class CanRequestFriendshipTest extends TestCase
 {
     use RefreshDatabase;
 
-    function test_can_send_frienship_request()
+    function test_can_create_frienship_request()
     {
         $this->withoutExceptionHandling();
 
@@ -24,7 +24,27 @@ class CanRequestFriendshipTest extends TestCase
         $this->assertDatabaseHas('friendships', [
             'sender_id' => $sender->id,
             'recipient_id' => $recipient->id,
-            'accepted' => false
+            'status' => 'pending'
+        ]);
+    }
+
+    function test_can_delete_frienship_request()
+    {
+        $this->withoutExceptionHandling();
+
+        $sender = factory(User::class)->create();
+        $recipient = factory(User::class)->create();
+
+        Friendship::create([
+            'sender_id' => $sender->id,
+            'recipient_id' => $recipient->id,
+        ]);
+
+        $this->actingAs($sender)->deleteJson(route('friendships.destroy', $recipient));
+
+        $this->assertDatabaseMissing('friendships', [
+            'sender_id' => $sender->id,
+            'recipient_id' => $recipient->id,
         ]);
     }
 
@@ -38,15 +58,37 @@ class CanRequestFriendshipTest extends TestCase
         Friendship::create([
             'sender_id' => $sender->id,
             'recipient_id' => $recipient->id,
-            'accepted' => false
+            'status' => 'pending'
         ]);
 
-        $this->actingAs($recipient)->postJson(route('request-friendships.store', $sender));
+        $this->actingAs($recipient)->postJson(route('accept-friendships.store', $sender));
 
         $this->assertDatabaseHas('friendships', [
             'sender_id' => $sender->id,
             'recipient_id' => $recipient->id,
-            'accepted' => true
+            'status' => 'accepted'
+        ]);
+    }
+    
+    function test_can_deny_frienship_request()
+    {
+        $this->withoutExceptionHandling();
+
+        $sender = factory(User::class)->create();
+        $recipient = factory(User::class)->create();
+
+        Friendship::create([
+            'sender_id' => $sender->id,
+            'recipient_id' => $recipient->id,
+            'status' => 'pending',
+        ]);
+
+        $this->actingAs($recipient)->deleteJson(route('accept-friendships.destroy', $sender));
+
+        $this->assertDatabaseHas('friendships', [
+            'sender_id' => $sender->id,
+            'recipient_id' => $recipient->id,
+            'status' => 'denied',
         ]);
     }
 }
