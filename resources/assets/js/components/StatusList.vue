@@ -9,6 +9,9 @@ import StatusListItem from "./StatusListItem";
 
 export default {
   components: { StatusListItem },
+  props: {
+    url: String
+  },
   data() {
     return {
       statuses: []
@@ -16,7 +19,7 @@ export default {
   },
   mounted() {
     axios
-      .get("/statuses")
+      .get(this.getUrl)
       .then(res => {
         this.statuses = res.data.data;
       })
@@ -27,6 +30,11 @@ export default {
     EventBus.$on("status_created", status => {
       this.statuses.unshift(status);
     });
+  },
+  computed: {
+    getUrl() {
+      return this.url ? this.url : "/statuses";
+    }
   }
 };
 </script>

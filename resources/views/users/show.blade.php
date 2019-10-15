@@ -14,9 +14,9 @@
             </div>
         </div>
         <div class="col-md-9">
-            <div class="card border-0 bg-light mb-3 shadow-sm">
-                <div class="card-body">Contenido</div>
-            </div>
+            <status-list 
+                url="{{ route('users.statuses.index', $user) }}"
+            ></status-list>
         </div>
     </div>
 </div>
