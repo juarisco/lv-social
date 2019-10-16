@@ -12,6 +12,16 @@ class CanRequestFriendshipTest extends TestCase
 {
     use RefreshDatabase;
 
+    function test_guests_users_cannot_create_friendship_request()
+    {
+        // $this->withoutExceptionHandling();
+        $recipient = factory(User::class)->create();
+
+        $response = $this->postJson(route('friendships.store', $recipient));
+
+        $response->assertStatus(401);
+    }
+
     function test_can_create_frienship_request()
     {
         $this->withoutExceptionHandling();
@@ -48,6 +58,16 @@ class CanRequestFriendshipTest extends TestCase
         ]);
     }
 
+    function test_guests_users_cannot_delete_friendship_request()
+    {
+        // $this->withoutExceptionHandling();
+        $recipient = factory(User::class)->create();
+
+        $response = $this->deleteJson(route('friendships.destroy', $recipient));
+
+        $response->assertStatus(401);
+    }
+
     function test_can_accept_frienship_request()
     {
         $this->withoutExceptionHandling();
@@ -69,7 +89,17 @@ class CanRequestFriendshipTest extends TestCase
             'status' => 'accepted'
         ]);
     }
-    
+
+    function test_guests_users_cannot_accept_friendship_request()
+    {
+        // $this->withoutExceptionHandling();
+        $user = factory(User::class)->create();
+
+        $response = $this->postJson(route('accept-friendships.store', $user));
+
+        $response->assertStatus(401);
+    }
+
     function test_can_deny_frienship_request()
     {
         $this->withoutExceptionHandling();
@@ -90,5 +120,15 @@ class CanRequestFriendshipTest extends TestCase
             'recipient_id' => $recipient->id,
             'status' => 'denied',
         ]);
+    }
+
+    function test_guests_users_cannot_deny_friendship_request()
+    {
+        // $this->withoutExceptionHandling();
+        $user = factory(User::class)->create();
+
+        $response = $this->deleteJson(route('accept-friendships.destroy', $user));
+
+        $response->assertStatus(401);
     }
 }
