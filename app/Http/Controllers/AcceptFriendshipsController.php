@@ -23,6 +23,10 @@ class AcceptFriendshipsController extends Controller
             'sender_id' =>  $sender->id,
             'recipient_id' =>  auth()->id(),
         ])->update(['status' => 'accepted']);
+
+        return response()->json([
+            'friendship_status' => 'accepted'
+        ]);
     }
 
     public function destroy(User $sender)
@@ -31,5 +35,9 @@ class AcceptFriendshipsController extends Controller
             'sender_id' =>  $sender->id,
             'recipient_id' =>  auth()->id(),
         ])->update(['status' => 'denied']);
+
+        return response()->json([
+            'friendship_status' => 'denied'
+        ]);
     }
 }
