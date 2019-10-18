@@ -59316,7 +59316,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post("/statuses", { body: this.body }).then(function (res) {
-        // EventBus.$emit("status_created", res.data.data);
+        EventBus.$emit("status_created", res.data.data);
         _this.body = "";
       }).catch(function (err) {
         console.log(err.response.data);
@@ -59497,7 +59497,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n.status-list-transition-move {\n  -webkit-transition: all 0.8s;\n  transition: all 0.8s;\n}\n", ""]);
 
 // exports
 
@@ -59510,6 +59510,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__StatusListItem__ = __webpack_require__(58);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__StatusListItem___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__StatusListItem__);
+//
+//
 //
 //
 //
@@ -59538,9 +59540,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(err.response.data);
     });
 
-    // EventBus.$on("status_created", status => {
-    //   this.statuses.unshift(status);
-    // });
+    EventBus.$on("status_created", function (status) {
+      _this.statuses.unshift(status);
+    });
 
     Echo.channel("statuses").listen("StatusCreated", function (_ref) {
       var status = _ref.status;
@@ -60185,12 +60187,19 @@ var render = function() {
   return _c(
     "div",
     { on: { click: _vm.redirectIfGuest } },
-    _vm._l(_vm.statuses, function(status) {
-      return _c("status-list-item", {
-        key: status.id,
-        attrs: { status: status }
-      })
-    }),
+    [
+      _c(
+        "transition-group",
+        { attrs: { name: "status-list-transition" } },
+        _vm._l(_vm.statuses, function(status) {
+          return _c("status-list-item", {
+            key: status.id,
+            attrs: { status: status }
+          })
+        }),
+        1
+      )
+    ],
     1
   )
 }

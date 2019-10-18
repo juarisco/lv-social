@@ -1,6 +1,8 @@
 <template>
   <div @click="redirectIfGuest">
-    <status-list-item v-for="status in statuses" :key="status.id" :status="status"></status-list-item>
+    <transition-group name="status-list-transition">
+      <status-list-item v-for="status in statuses" :key="status.id" :status="status"></status-list-item>
+    </transition-group>
   </div>
 </template>
 
@@ -27,9 +29,9 @@ export default {
         console.log(err.response.data);
       });
 
-    // EventBus.$on("status_created", status => {
-    //   this.statuses.unshift(status);
-    // });
+    EventBus.$on("status_created", status => {
+      this.statuses.unshift(status);
+    });
 
     Echo.channel("statuses").listen("StatusCreated", ({ status }) => {
       this.statuses.unshift(status);
@@ -46,4 +48,7 @@ export default {
 </script>
 
 <style>
+.status-list-transition-move {
+  transition: all 0.8s;
+}
 </style>
