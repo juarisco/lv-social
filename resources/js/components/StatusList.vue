@@ -30,6 +30,12 @@ export default {
     EventBus.$on("status_created", status => {
       this.statuses.unshift(status);
     });
+
+    Echo.channel("statuses").listen("StatusCreated", ({ status }) => {
+      this.statuses.unshift(status);
+
+      console.log(status);
+    });
   },
   computed: {
     getUrl() {

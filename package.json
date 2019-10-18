@@ -16,9 +16,11 @@
         "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^5.1",
         "jquery": "^3.2",
+        "laravel-echo": "^1.6.1",
         "laravel-mix": "^2.0",
         "lodash": "^4.17.4",
         "popper.js": "^1.12",
+        "pusher-js": "^5.0.2",
         "vue": "^2.5.7"
     }
 }

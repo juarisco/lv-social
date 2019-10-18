@@ -9,6 +9,7 @@ use App\Events\StatusCreated;
 use Illuminate\Support\Facades\Event;
 use App\Http\Resources\StatusResource;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
 class CreateStatusTest extends TestCase
 {
@@ -37,7 +38,9 @@ class CreateStatusTest extends TestCase
 
         Event::assertDispatched(StatusCreated::class, function ($e) {
             return $e->status->id === Status::first()->id
-                && get_class($e->status) === StatusResource::class;
+                && $e->status instanceof StatusResource
+                && $e->status->resource instanceof Status
+                && $e instanceof ShouldBroadcast;
         });
 
         $response->assertJson([
