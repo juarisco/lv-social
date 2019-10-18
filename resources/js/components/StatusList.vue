@@ -27,9 +27,9 @@ export default {
         console.log(err.response.data);
       });
 
-    EventBus.$on("status_created", status => {
-      this.statuses.unshift(status);
-    });
+    // EventBus.$on("status_created", status => {
+    //   this.statuses.unshift(status);
+    // });
 
     Echo.channel("statuses").listen("StatusCreated", ({ status }) => {
       this.statuses.unshift(status);

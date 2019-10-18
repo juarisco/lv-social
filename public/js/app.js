@@ -59316,7 +59316,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       axios.post("/statuses", { body: this.body }).then(function (res) {
-        EventBus.$emit("status_created", res.data.data);
+        // EventBus.$emit("status_created", res.data.data);
         _this.body = "";
       }).catch(function (err) {
         console.log(err.response.data);
@@ -59538,9 +59538,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(err.response.data);
     });
 
-    EventBus.$on("status_created", function (status) {
-      _this.statuses.unshift(status);
-    });
+    // EventBus.$on("status_created", status => {
+    //   this.statuses.unshift(status);
+    // });
 
     Echo.channel("statuses").listen("StatusCreated", function (_ref) {
       var status = _ref.status;

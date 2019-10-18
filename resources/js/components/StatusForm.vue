@@ -36,7 +36,7 @@ export default {
       axios
         .post("/statuses", { body: this.body })
         .then(res => {
-          EventBus.$emit("status_created", res.data.data);
+          // EventBus.$emit("status_created", res.data.data);
           this.body = "";
         })
         .catch(err => {
