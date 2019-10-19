@@ -46,7 +46,12 @@ export default {
       required: true
     }
   },
-  components: { LikeBtn, CommentList, CommentForm }
+  components: { LikeBtn, CommentList, CommentForm },
+  mounted() {
+    Echo.channel(`statuses.${this.status.id}.likes`).listen("ModelLiked", e => {
+      this.status.likes_count++;
+    });
+  }
 };
 </script>
 
