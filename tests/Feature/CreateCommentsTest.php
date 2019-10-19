@@ -39,16 +39,27 @@ class CreateCommentsTest extends TestCase
         $this->actingAs($user)
             ->postJson(route('statuses.comments.store', $status), $comment);
 
+        // Event::assertDispatched(CommentCreated::class, function ($commentStatusEvent) {
+        //     $this->assertInstanceOf(ShouldBroadcast::class, $commentStatusEvent);
+        //     $this->assertInstanceOf(CommentResource::class, $commentStatusEvent->comment);
+        //     $this->assertInstanceOf(Comment::class, $commentStatusEvent->comment->resource);
+        //     $this->assertEquals(Comment::first()->id, $commentStatusEvent->comment->id);
+        //     $this->assertEquals(
+        //         'socket-id',
+        //         $commentStatusEvent->socket,
+        //         'The event ' . get_class($commentStatusEvent) . ' must call the method "dontBroadcastToCurrentUser" in the constructor.'
+        //     );
+        //     return true;
+        // });
+
+
         Event::assertDispatched(CommentCreated::class, function ($commentStatusEvent) {
-            $this->assertInstanceOf(ShouldBroadcast::class, $commentStatusEvent);
             $this->assertInstanceOf(CommentResource::class, $commentStatusEvent->comment);
-            $this->assertInstanceOf(Comment::class, $commentStatusEvent->comment->resource);
-            $this->assertEquals(Comment::first()->id, $commentStatusEvent->comment->id);
-            $this->assertEquals(
-                'socket-id',
-                $commentStatusEvent->socket,
-                'The event ' . get_class($commentStatusEvent) . ' must call the method "dontBroadcastToCurrentUser" in the constructor.'
-            );
+            $this->assertTrue(Comment::first()->is($commentStatusEvent->comment->resource));
+            $this->assertEventChannelType('public', $commentStatusEvent);
+            $this->assertEventChannelName("statuses.{$commentStatusEvent->comment->status_id}.comments", $commentStatusEvent);
+            $this->assertDontBroadcastToCurrentUser($commentStatusEvent);
+
             return true;
         });
     }
