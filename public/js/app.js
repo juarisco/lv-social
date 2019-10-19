@@ -59646,7 +59646,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -59659,6 +59659,8 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn__ = __webpack_require__(62);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__LikeBtn__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommentList__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__CommentList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__CommentList__);
 //
 //
 //
@@ -59717,39 +59719,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -59759,32 +59730,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       required: true
     }
   },
-  components: { LikeBtn: __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default.a },
+  components: { LikeBtn: __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default.a, CommentList: __WEBPACK_IMPORTED_MODULE_1__CommentList___default.a },
   data: function data() {
     return {
-      newComment: "",
-      comments: this.status.comments
+      newComment: ""
     };
   },
-  mounted: function mounted() {
-    var _this = this;
 
-    Echo.channel("statuses." + this.status.id + ".comments").listen("CommentCreated", function (_ref) {
-      var comment = _ref.comment;
-
-      _this.comments.push(comment);
-
-      console.log(comment);
-    });
-  },
 
   methods: {
     addComment: function addComment() {
-      var _this2 = this;
+      var _this = this;
 
       axios.post("/statuses/" + this.status.id + "/comments", { body: this.newComment }).then(function (res) {
-        _this2.newComment = "";
-        _this2.comments.push(res.data.data);
+        _this.newComment = "";
+        EventBus.$emit("statuses." + _this.status.id + ".comments", res.data.data);
       }).catch(function (err) {
         console.log(err.response.data);
       });
@@ -60041,66 +60001,8 @@ var render = function() {
       "div",
       { staticClass: "card-footer" },
       [
-        _vm._l(_vm.comments, function(comment) {
-          return _c("div", { key: comment.id, staticClass: "mb-3" }, [
-            _c("div", { staticClass: "d-flex" }, [
-              _c("img", {
-                staticClass: "rounded shadow-sm mr-2",
-                attrs: {
-                  height: "34px",
-                  width: "34px",
-                  src: comment.user.avatar,
-                  alt: comment.user.name
-                }
-              }),
-              _vm._v(" "),
-              _c(
-                "div",
-                { staticClass: "flex-grow-1" },
-                [
-                  _c("div", { staticClass: "card border-0 shadow-sm" }, [
-                    _c("div", { staticClass: "card-body p-2 text-secondary" }, [
-                      _c("a", { attrs: { href: comment.user.link } }, [
-                        _c("strong", [_vm._v(_vm._s(comment.user.name))])
-                      ]),
-                      _vm._v(
-                        "\n              " +
-                          _vm._s(comment.body) +
-                          "\n            "
-                      )
-                    ])
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "small",
-                    {
-                      staticClass:
-                        "badge badge-pill badge-primary py-1 px-2 mt-1 float-right",
-                      attrs: { dusk: "comment-likes-count" }
-                    },
-                    [
-                      _c("i", { staticClass: "fa fa-thumbs-up" }),
-                      _vm._v(
-                        "\n            " +
-                          _vm._s(comment.likes_count) +
-                          "\n          "
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("like-btn", {
-                    staticClass: "comments-like-btn",
-                    attrs: {
-                      dusk: "comment-like-btn",
-                      url: "/comments/" + comment.id + "/likes",
-                      model: comment
-                    }
-                  })
-                ],
-                1
-              )
-            ])
-          ])
+        _c("comment-list", {
+          attrs: { comments: _vm.status.comments, "status-id": _vm.status.id }
         }),
         _vm._v(" "),
         _vm.isAuthenticated
@@ -60160,7 +60062,7 @@ var render = function() {
             )
           : _vm._e()
       ],
-      2
+      1
     )
   ])
 }
@@ -60670,6 +60572,258 @@ module.exports = {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 81 */,
+/* 82 */,
+/* 83 */,
+/* 84 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(85)
+}
+var normalizeComponent = __webpack_require__(4)
+/* script */
+var __vue_script__ = __webpack_require__(87)
+/* template */
+var __vue_template__ = __webpack_require__(88)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/CommentList.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-b2309ffc", Component.options)
+  } else {
+    hotAPI.reload("data-v-b2309ffc", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 85 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(86);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("732481ff", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b2309ffc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommentList.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-b2309ffc\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CommentList.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 87 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__LikeBtn__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  components: { LikeBtn: __WEBPACK_IMPORTED_MODULE_0__LikeBtn___default.a },
+  props: {
+    comments: {
+      type: Array,
+      required: true
+    },
+    statusId: {
+      type: Number,
+      required: true
+    }
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    Echo.channel("statuses." + this.statusId + ".comments").listen("CommentCreated", function (_ref) {
+      var comment = _ref.comment;
+
+      _this.comments.push(comment);
+    });
+
+    EventBus.$on("statuses." + this.statusId + ".comments", function (comment) {
+      _this.comments.push(comment);
+    });
+  }
+});
+
+/***/ }),
+/* 88 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.comments, function(comment) {
+      return _c("div", { key: comment.id, staticClass: "mb-3" }, [
+        _c("div", { staticClass: "d-flex" }, [
+          _c("img", {
+            staticClass: "rounded shadow-sm mr-2",
+            attrs: {
+              height: "34px",
+              width: "34px",
+              src: comment.user.avatar,
+              alt: comment.user.name
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "flex-grow-1" },
+            [
+              _c("div", { staticClass: "card border-0 shadow-sm" }, [
+                _c("div", { staticClass: "card-body p-2 text-secondary" }, [
+                  _c("a", { attrs: { href: comment.user.link } }, [
+                    _c("strong", [_vm._v(_vm._s(comment.user.name))])
+                  ]),
+                  _vm._v(
+                    "\n            " + _vm._s(comment.body) + "\n          "
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c(
+                "small",
+                {
+                  staticClass:
+                    "badge badge-pill badge-primary py-1 px-2 mt-1 float-right",
+                  attrs: { dusk: "comment-likes-count" }
+                },
+                [
+                  _c("i", { staticClass: "fa fa-thumbs-up" }),
+                  _vm._v(
+                    "\n          " + _vm._s(comment.likes_count) + "\n        "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("like-btn", {
+                staticClass: "comments-like-btn",
+                attrs: {
+                  dusk: "comment-like-btn",
+                  url: "/comments/" + comment.id + "/likes",
+                  model: comment
+                }
+              })
+            ],
+            1
+          )
+        ])
+      ])
+    }),
+    0
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-b2309ffc", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
