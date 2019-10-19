@@ -105,6 +105,16 @@ export default {
       comments: this.status.comments
     };
   },
+  mounted() {
+    Echo.channel(`statuses.${this.status.id}.comments`).listen(
+      "CommentCreated",
+      ({ comment }) => {
+        this.comments.push(comment);
+
+        console.log(comment);
+      }
+    );
+  },
   methods: {
     addComment() {
       axios

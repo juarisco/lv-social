@@ -59646,7 +59646,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -59766,14 +59766,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       comments: this.status.comments
     };
   },
+  mounted: function mounted() {
+    var _this = this;
+
+    Echo.channel("statuses." + this.status.id + ".comments").listen("CommentCreated", function (_ref) {
+      var comment = _ref.comment;
+
+      _this.comments.push(comment);
+
+      console.log(comment);
+    });
+  },
 
   methods: {
     addComment: function addComment() {
-      var _this = this;
+      var _this2 = this;
 
       axios.post("/statuses/" + this.status.id + "/comments", { body: this.newComment }).then(function (res) {
-        _this.newComment = "";
-        _this.comments.push(res.data.data);
+        _this2.newComment = "";
+        _this2.comments.push(res.data.data);
       }).catch(function (err) {
         console.log(err.response.data);
       });
