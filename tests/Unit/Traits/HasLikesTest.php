@@ -25,6 +25,8 @@ class HasLikesTest extends TestCase
         Schema::create('model_with_likes', function ($table) {
             $table->increments('id');
         });
+
+        Event::fake([ModelLiked::class, ModelUnLiked::class]);
     }
 
     function test_a_model_morph_many_likes()
@@ -101,7 +103,6 @@ class HasLikesTest extends TestCase
 
     function test_an_event_is_fired_when_a_model_is_liked()
     {
-        Event::fake([ModelLiked::class]);
         Broadcast::shouldReceive('socket')->andReturn('socket-id');
 
         $this->actingAs(factory(User::class)->create());
@@ -122,7 +123,6 @@ class HasLikesTest extends TestCase
 
     function test_an_event_is_fired_when_a_model_is_unliked()
     {
-        Event::fake([ModelUnLiked::class]);
         Broadcast::shouldReceive('socket')->andReturn('socket-id');
 
         $this->actingAs(factory(User::class)->create());
