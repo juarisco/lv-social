@@ -11,14 +11,18 @@ class NewLikeNotification extends Notification
 {
     use Queueable;
 
+    public $model;
+    public $likeSender;
+
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($model, $likeSender)
     {
-        //
+        $this->model = $model;
+        $this->likeSender = $likeSender;
     }
 
     /**
