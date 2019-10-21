@@ -33,7 +33,7 @@ class NewLikeNotification extends Notification
      */
     public function via($notifiable)
     {
-        return [];
+        return ['database'];
     }
 
     /**
@@ -59,7 +59,8 @@ class NewLikeNotification extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            'link' => $this->model->path(),
+            'message' => "Al usuario {$this->likeSender->name} le gustó tu publicación."
         ];
     }
 }

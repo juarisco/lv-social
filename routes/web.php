@@ -15,6 +15,7 @@ Route::view('/', 'welcome')->name('home');
 
 // Statuses routes
 Route::get('statuses', 'StatusesController@index')->name('statuses.index');
+Route::get('statuses/{status}', 'StatusesController@show')->name('statuses.show');
 Route::post('statuses', 'StatusesController@store')->name('statuses.store')->middleware('auth');
 
 // Statuses Likes routes
