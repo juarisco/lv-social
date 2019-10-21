@@ -21,6 +21,7 @@ Vue.component('status-form', require('./components/StatusForm.vue'));
 Vue.component('status-list', require('./components/StatusList.vue'));
 Vue.component('friendship-btn', require('./components/FriendshipBtn.vue'));
 Vue.component('accept-friendship-btn', require('./components/AcceptFriendshipBtn.vue'));
+Vue.component('notification-list', require('./components/NotificationList.vue'));
 
 import auth from "./mixins/auth";
 
