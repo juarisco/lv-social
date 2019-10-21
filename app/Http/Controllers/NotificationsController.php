@@ -10,4 +10,10 @@ class NotificationsController extends Controller
     {
         return auth()->user()->notifications;
     }
+
+    public function markAsRead()
+    { }
+
+    public function markAsUnRead()
+    { }
 }
