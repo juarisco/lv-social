@@ -33,7 +33,16 @@ class UsersCanGetTheirNotificationsTest extends DuskTestCase
                 ->click('@notifications')
                 ->assertSee('Haz recibido un like')
                 ->click("@{$notification->id}")
-                ->assertUrlIs($status->path());
+                ->assertUrlIs($status->path())
+
+                ->click('@notifications')
+                ->press("@mark-as-read-{$notification->id}")
+                ->waitFor("@mark-as-unread-{$notification->id}")
+                ->assertMissing("@mark-as-read-{$notification->id}")
+
+                ->press("@mark-as-unread-{$notification->id}")
+                ->waitFor("@mark-as-read-{$notification->id}")
+                ->assertMissing("@mark-as-unread-{$notification->id}");
         });
     }
 }
