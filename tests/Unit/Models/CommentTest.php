@@ -4,6 +4,7 @@ namespace Tests\Unit\Models;
 
 use App\User;
 use Tests\TestCase;
+use App\Models\Status;
 use App\Models\Comment;
 use App\Traits\HasLikes;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,6 +18,13 @@ class CommentTest extends TestCase
         $comment = factory(Comment::class)->create();
 
         $this->assertInstanceOf(User::class, $comment->user);
+    }
+
+    function test_a_comment_belongs_to_a_status()
+    {
+        $comment = factory(Comment::class)->create();
+
+        $this->assertInstanceOf(Status::class, $comment->status);
     }
 
     function test_a_comment_model_must_use_the_trait_has_likes()
