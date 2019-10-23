@@ -48794,7 +48794,13 @@ var render = function() {
           "aria-expanded": "false"
         }
       },
-      [_vm._t("default"), _vm._v("\n    " + _vm._s(_vm.count) + "\n  ")],
+      [
+        _vm._t("default"),
+        _vm._v(" "),
+        _c("span", { attrs: { dusk: "notifications-count" } }, [
+          _vm._v(_vm._s(_vm.count))
+        ])
+      ],
       2
     ),
     _vm._v(" "),
