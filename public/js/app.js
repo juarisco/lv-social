@@ -2281,6 +2281,22 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
+    // Channel: private-App.User.5,
+    // Event: Illuminate\Notifications\Events\BroadcastNotificationCreated
+    if (this.isAuthenticated) {
+      Echo["private"]("App.User.".concat(this.currentUser.id)).notification(function (notification) {
+        _this.count++;
+
+        _this.notifications.push({
+          id: notification.id,
+          data: {
+            link: notification.link,
+            message: notification.message
+          }
+        });
+      });
+    }
+
     axios.get("/notifications").then(function (res) {
       _this.notifications = res.data;
 

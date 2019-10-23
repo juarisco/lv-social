@@ -48,7 +48,7 @@ class UsersCanGetTheirNotificationsTest extends DuskTestCase
 
     function test_users_can_see_their_notifications_in_real_time()
     {
-        $this->markTestIncomplete();
+        // $this->markTestIncomplete();
 
         $user1 = factory(User::class)->create();
         $user2 = factory(User::class)->create();
