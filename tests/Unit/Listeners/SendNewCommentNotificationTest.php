@@ -9,6 +9,7 @@ use App\Events\CommentCreated;
 use Illuminate\Support\Facades\Notification;
 use App\Notifications\NewCommentNotification;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Notifications\Messages\BroadcastMessage;
 
 class SendNewCommentNotificationTest extends TestCase
 {
@@ -26,9 +27,11 @@ class SendNewCommentNotificationTest extends TestCase
         Notification::assertSentTo(
             $status->user,
             NewCommentNotification::class,
-            function ($notification, $channels) use ($comment) {
+            function ($notification, $channels) use ($comment, $status) {
                 $this->assertContains('database', $channels);
+                $this->assertContains('broadcast', $channels);
                 $this->assertTrue($notification->comment->is($comment));
+                $this->assertInstanceOf(BroadcastMessage::class, $notification->toBroadcast($status->user));
                 return true;
             }
         );
