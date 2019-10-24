@@ -3,6 +3,7 @@
 namespace App;
 
 use App\Models\Status;
+use App\Models\Friendship;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -51,5 +52,25 @@ class User extends Authenticatable
     public function statuses()
     {
         return $this->hasMany(Status::class);
+    }
+
+    public function sendFriendRequestTo($recipient)
+    {
+        return Friendship::firstOrCreate([
+            'sender_id' => $this->id,
+            'recipient_id' =>  $recipient->id,
+        ]);
+    }
+
+    public function acceptFriendRequestFrom($sender)
+    {
+        $friendship = Friendship::where([
+            'sender_id' =>  $sender->id,
+            'recipient_id' =>  $this->id,
+        ])->first();
+
+        $friendship->update(['status' => 'accepted']);
+
+        return $friendship;
     }
 }
