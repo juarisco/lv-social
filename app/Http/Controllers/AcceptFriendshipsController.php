@@ -8,13 +8,11 @@ use Illuminate\Http\Request;
 
 class AcceptFriendshipsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $friendshipRequests = Friendship::with('sender')->where([
-            'recipient_id' => auth()->id(),
-        ])->get();
-
-        return view('friendships.index', compact('friendshipRequests'));
+        return view('friendships.index', [
+            'friendshipRequests' => $request->user()->friendshipRequestsRecieved
+        ]);
     }
 
     public function store(Request $request, User $sender)
@@ -26,12 +24,9 @@ class AcceptFriendshipsController extends Controller
         ]);
     }
 
-    public function destroy(User $sender)
+    public function destroy(Request $request, User $sender)
     {
-        Friendship::where([
-            'sender_id' =>  $sender->id,
-            'recipient_id' =>  auth()->id(),
-        ])->update(['status' => 'denied']);
+        $request->user()->denyFriendRequestFrom($sender);
 
         return response()->json([
             'friendship_status' => 'denied'

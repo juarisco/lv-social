@@ -6,6 +6,7 @@ namespace Tests\Feature;
 use App\User;
 use Tests\TestCase;
 use App\Models\Status;
+use App\Models\Friendship;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UserTest extends TestCase
@@ -64,5 +65,33 @@ class UserTest extends TestCase
         $friendship = $recipient->acceptFriendRequestFrom($sender);
 
         $this->assertEquals('accepted', $friendship->status);
+    }
+
+    function test_a_user_can_deny_friend_requests()
+    {
+        $sender = factory(User::class)->create();
+        $recipient = factory(User::class)->create();
+
+        $sender->sendFriendRequestTo($recipient);
+
+        $friendship = $recipient->denyFriendRequestFrom($sender);
+
+        $this->assertEquals('denied', $friendship->status);
+    }
+
+    function test_a_user_can_get_all_their_friend_requests()
+    {
+        $sender = factory(User::class)->create();
+        $recipient = factory(User::class)->create();
+
+        $sender->sendFriendRequestTo($recipient);
+
+        $this->assertCount(0, $recipient->friendshipRequestsSent);
+        $this->assertCount(1, $recipient->friendshipRequestsRecieved);
+        $this->assertInstanceOf(Friendship::class, $recipient->friendshipRequestsRecieved->first());
+
+        $this->assertCount(1, $sender->friendshipRequestsSent);
+        $this->assertCount(0, $sender->friendshipRequestsRecieved);
+        $this->assertInstanceOf(Friendship::class, $sender->friendshipRequestsSent->first());
     }
 }
